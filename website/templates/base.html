@@ -1,0 +1,97 @@
+<!-- base -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% block head %}{% endblock %}
+
+      <title>{% block title %}{% endblock %}</title>
+
+      <!-- icon -->
+      <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Images/favicon.ico')}}"> 
+
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='CSS/all.css')}}"> 
+
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+
+      <!-- CSS Scripts -->
+      <link rel="stylesheet" href="{{ url_for('static', filename='CSS/bootstrap.min.css')}}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css')}}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='CSS/mediaQuery.css')}}">
+      
+
+      {% block css %}{% endblock %}
+
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#navbar-example" class="position-relative">
+      <nav class="navbar navbar-dark navbar-expand-lg sticky-top" id="navbar-example" >
+          <div class="container">
+            <img src="{{ url_for('static', filename='images/logo3.png')}}" alt="logo image">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span  class="navbar-toggler-icon text-white"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('views.home') }}#homepage">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('views.home') }}#Types">Types</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('views.home') }}#worthUsing">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('views.home') }}#DL">ML&DL</a></li>
+                {% if current_user.is_authenticated %}
+                  {% if current_user.role == 'doctor' %}
+                     <li class="nav-item"><a class="nav-link" href="{{ url_for('views.docprofile') }}">Profile</a></li>
+                  {% else %}
+                     <li class="nav-item"><a class="nav-link" href="{{ url_for('views.profile') }}">Profile</a></li>
+                  {% endif %}
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.register') }}">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Login</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+      </nav>
+      {% for category, message in get_flashed_messages(with_categories=true) %}
+      {% if category == 'error' %}
+      <div class="alert alert-danger w-100 mb-0 px-5" id="errorAlert" role="alert">
+        <div class="d-flex justify-content-center  align-items-center">
+            <i class="fa-solid fa-xmark fa-2x me-2"></i>
+            <div> 
+              {{ message }}
+            </div>
+        </div> 
+      </div>
+      {% else %}
+      <div class="alert alert-success w-100 mb-0 px-5 " id="errorAlert" role="alert">
+        <div class="d-flex justify-content-center  align-items-center">
+            <i class="fa-solid fa-check fa-2x me-2"></i>
+            <div> 
+              {{ message }}
+            </div>
+        </div> 
+      </div>
+      {% endif %}
+    {% endfor %}
+      {% block content %}{% endblock %}
+      <script src="{{ url_for('static', filename='JS/owl.carousel.min.js')}}"></script> 
+      <script src="/static/JS/bootstrap.bundle.min.js"></script>
+      <script src="{{ url_for('static', filename='JS/jquery-3.6.1.min.js') }}"></script>
+      <script>
+        function animate(){ 
+        $("#errorAlert").slideToggle('slow');
+        } 
+        setTimeout(animate,2000);
+       </script>
+
+
+      {% block scripts %}{% endblock %}
+  </body>
+</html>
+
+

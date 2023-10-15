@@ -1,0 +1,17 @@
+@media screen and (max-width: 769px) {
+    #homepage .consult{ 
+        display: none;
+    } 
+    #AiRole .row {
+        flex-direction: column-reverse;
+      }  
+    #DL .row {
+    flex-direction: column-reverse;
+    } 
+    #DL img{ 
+        width: 50%;
+    }  
+    footer{ 
+        font-size: 15px;
+       }
+}   

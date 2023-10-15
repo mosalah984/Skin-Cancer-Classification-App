@@ -1,0 +1,133 @@
+<!-- User Prifile -->
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block title %}Personal Page | Skin Cancer{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+{% if file %}
+{% endif%}
+<div class="container">
+  <div class="row gy-4 m-auto p-3 mt-3 " id="InfoSection">
+    <div class="m-auto p-5 shadow col-lg-6" id="InnerInfoSection">
+      <div class="profileInfo">  
+        <div class=" text-center">
+          <div class="d-flex flex-column align-items-end">
+            <div id="Edit" > 
+              <button type="button" style="background-color: transparent; color: #073775; border: none;">Edit Profile <i class="fa-regular fa-pen-to-square ps-2"></i></button>
+              </div>
+              <div id="changePass"  > 
+                <button type="button" style="background-color: transparent; color: #073775; border: none;">Change Password <i class="fa-solid fa-unlock ps-2"></i></button>
+              </div>
+          </div>
+            {% if current_user.gender == 'female' %}
+            <img src="{{ url_for('static', filename='Images/femaleUser.png') }}" class="rounded w-25" alt="Female image"> 
+            {% else %}
+            <img src="{{ url_for('static', filename='Images/maleUser.png') }}" class="rounded w-25" alt="Male image">
+            {% endif %}
+            <h3>{{ current_user.name }}</h3>
+            <small>{{ current_user.gender }}</small>  
+            <hr class="w-75 m-auto" style="background-color: #073775; height: 3px;">  
+          </div>
+          <div class="d-flex flex-column align-items-center mt-3">
+            <p class="ms-3 fw-bold">General Info</p> 
+            <div class="d-flex ms-3 "> 
+              <i class="fa-solid fa-arrow-up-9-1 me-2"></i> 
+              <p class="text-muted me-2">Age:</p>
+              <p class="fw-bolder">{{ age }}</p>
+            </div>
+            <div class="d-flex ms-3 "> 
+              <i class="fa-regular fa-envelope me-2"></i>
+              <p class="text-muted me-2">Email:</p>
+              <p class="fw-bolder">{{ current_user.email }}</p>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col-md-6">
+              <div class="d-grid mx-auto">
+                <button type="button" id="TrackHistory" class="btn btn-primary rounded my-1 " style="background-color: #073775 !important; "><a href="{{ url_for('views.history') }}">Track History <i class="fa-solid fa-clock-rotate-left ps-2"></i></a></button>
+              </div> 
+            </div> 
+            <div class="col-md-6">
+              <div class="d-grid  mx-auto" >
+                <button type="button" class="btn btn-primary rounded my-1" style="background-color: #073775 !important; "><a href="{{ url_for('views.upload') }}">Test Image <i class="fa-regular fa-image ps-2"></i></a></button>
+              </div>
+            </div> 
+          </div>
+        </div>  
+      </div> 
+
+      <!-- Edit Profile -->
+      <div id="EditPersonalDetails" class="col-lg-6 d-none border px-5 py-3 rounded mt-2 " style="background-color: rgb(233, 236, 239, 0.2);"> 
+        <div id="DetailsSection" class="d-none"> 
+        <form id="submitEditForm" class="" action="{{ url_for('views.edit_profile')}}" method="POST" onsubmit="return editFormValidation()" >
+          <h2 id="ProfileHeading" class="text-center">Edit Profile</h2>
+          <hr style="background-color: #073775; height: 5px;">
+          <div class="mb-2">
+            <label for="FullName" class="form-label">Full Name</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="{{ current_user.name }}">
+            <p id="FullNameEmpty" class=" alert alert-danger mt-1 py-2 d-none">This field is required!</p>
+            <p id="FullNameLValidation" class=" alert alert-danger mt-1 py-2 d-none">Please enter a valid full name</p>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email"  name="email" id="email" class="form-control"  placeholder="{{ current_user.email }}" disabled>
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" name="age" id="age" class="form-control" placeholder="{{ age }}" disabled>
+          </div>
+          <div  class="d-flex justify-content-evenly" >
+            <div class="d-grid gap-2 col-5">
+              <button type="submit" class="btn btn-primary rounded mt-2" style="background-color: #073775 !important;">Save Changes</button>
+            </div>
+           </div>
+        </form>
+        </div> 
+          <div id="passwordsSection" class="d-none">
+            <form id="passwordForm" action="{{url_for('views.edit_pass')}}" method="POST" onsubmit="return validatePasswordForm();">
+                <h2 id="ProfileHeading" class="text-center">Change Password</h2> 
+                <hr style="background-color: #073775; height: 5px;">
+                <div class="mb-3">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Currunt password">
+                  <p id="passwordEmptyValidation" class="alert alert-danger mt-1 py-2 d-none">This field is required!</p>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" name="newPassword" id="newPassword" placeholder="New password">
+                  <p id="newPasswordEmptyValidation" class="alert alert-danger mt-1 py-2 d-none">This field is required!</p>
+                  <p id="newPasswordValidation" class="alert alert-danger mt-1 d-none">Password must contain at least 7 characters.</p>
+                </div>
+                <div class="mb-3">
+                  <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Re-type new password">
+                  <p id="confirmPasswordValidation" class="alert alert-danger mt-1 py-2 d-none">This field is required!</p>
+                  <p id="matchedPassword" class="alert alert-danger mt-1 py-2 d-none">The passwords do not match!</p>
+                </div>
+                <div  class="d-flex justify-content-evenly" >
+                  <div class="d-grid gap-2 col-5">
+                    <button type="submit" class="btn btn-primary rounded mt-2" style="background-color: #073775 !important;">Save Changes</button>
+                  </div>
+                 </div>
+            </form>
+          </div>
+            <div class="w-100 d-flex justify-content-center">
+              <div class="d-grid gap-2 col-5">
+                <button id="cancel_changes" type="button" class="btn btn-primary rounded mt-2" style="background-color: #073775 !important;">Cancel</button>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='JS/ProfileValidation.js') }}"></script>
+{% endblock %}
+
+

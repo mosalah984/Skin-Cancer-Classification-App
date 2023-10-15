@@ -1,0 +1,145 @@
+*{ 
+    padding: 0; 
+    margin: 0; 
+    box-sizing: border-box; 
+    font-family: 'Open Sans', sans-serif;
+}
+ 
+h1,h2,h3,h4,h5,h6{
+    font-weight: 700;
+}
+section{ 
+    margin: 40px 0px;
+}
+/************ Homepage section ************/
+#homepage{  
+    margin-top: 0;
+    background-image: url(/static/Images/Home_BG.png);
+    background-size: cover;
+    height: 78vh; 
+    background-position: center center; 
+    border-bottom-right-radius: 13%; 
+    padding: 30px 0px;
+}
+nav {  
+    padding-top: 20px;
+    background-color: #073775;  
+} 
+
+nav li a{ 
+    color: white !important;  
+    font-size: 0.9rem !important ;
+} 
+.homeContent{  
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;  
+    color: white;
+} 
+.homeContent span{ 
+    font-weight: 700;
+}
+
+
+/************ Ai role section ************/ 
+#AiRole{ 
+    margin-top: 60px;
+}
+#AiRole .info p{ 
+    font-size: 15px; 
+    margin-bottom: 6px ;
+}
+#AiRole i{ 
+    color:#25C448; 
+    padding-right: 5px;
+} 
+
+
+ 
+#WasteTime { 
+    margin: 25px 0;
+} 
+#WasteTime .bgimage{  
+    padding: 80px;
+    background-image: url(/static/Images/bg-img-banner-2c019ce9.png); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+ 
+
+/* Worth Using */    
+.item{ 
+    text-align: center;
+}
+.icon{  
+    margin: 12px auto;
+    background-color: #3BC5CE; 
+    height: 70px; 
+    width:70px; 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; 
+    transition: all 1s;
+}  
+.icon:hover{ 
+    background-color: transparent;
+} 
+.icon:hover i{ 
+    color:#3BC5CE;
+} 
+
+.icon i{ 
+    color: white;
+} 
+#worthUsing span{ 
+    font-weight: 700;
+} 
+
+
+/* DL */
+#DL p{ 
+    font-size: 15px; 
+    margin-bottom: 6px;
+}  
+#DL img{ 
+    width: 450px; 
+    height: 350px;
+}
+
+
+/* Footer */
+footer{ 
+    background-color: #073775;
+} 
+
+
+/* Upload Photo */
+#header{ 
+    width: 100%; 
+    background-color:#073775 ;
+} 
+
+a{ 
+    text-decoration: none; 
+    color: white;
+} 
+ 
+
+/* Personal page */
+#successAlert{ 
+    display: none;
+}
+#Edit{
+    cursor:pointer;
+}
+
+/* Register and Login Page */
+#RegisterHeading , #LoginHeading , #ProfileHeading , #HistoryHeading{ 
+    font-family: 'Tilt Prism', cursive; 
+    color: #073775; 
+    font-size: 3rem;
+} 
+
+

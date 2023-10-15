@@ -1,0 +1,242 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block title %}Skin Cancer{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+    <section id="homepage" class="">
+        <div class="container h-75">
+            <div class="homeContent w-75  mt-4"> 
+                <h1>Say No To Skin Diseases!</h1> 
+                <p>Check your skin on the Laptop and get instant <br> results within <span>1 minute.</span></p> 
+                <div>
+                    <button class="btn btn-danger rounded-5 mt-2 pt-3 pb-3 ps-4 pe-4"><a href="{{ url_for('views.upload') }}">CHECK YOUR SKIN NOW</a></button>
+                </div> 
+            </div>
+            <div class="d-flex h-75 flex-column justify-content-end text-white">
+                <small class=" consult pb-4">* The scan result is not a diagnosis. To obtain an accurate diagnosis and a recommendation for treatment - consult your doctor.</small>
+            </div>
+        </div> 
+    </section>
+    <section id="AiRole">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 d-flex justify-content-center">
+                    <img src="{{ url_for('static', filename='Images/man-.png')}}" alt="">
+                </div> 
+                <div class="col-md-7 info">
+                    <h2>Dermatologist can save your life</h2> 
+                    <p class="text-muted">One of the most dangerous diseases that Dermatologist can help identify is skin cancer.</p> 
+                    <h6>Skin cancer is the most common cancer in the worldwide.</h6> 
+                    <p class="text-muted"><i class="fa-solid fa-arrow-right-long"></i>More than 2 people die of skin cancer every hour all over the world.</p>
+                    <p class="text-muted"><i class="fa-solid fa-arrow-right-long"></i>Melanoma is a skin cancer that can spread earlier and more quickly than other skin cancers.</p>
+                    <p class="text-muted"><i class="fa-solid fa-arrow-right-long"></i>Melanoma is the second most common of all cancers in men and women ages 15-29.</p>
+                    <p class="text-muted"><i class="fa-solid fa-arrow-right-long"></i>1 in 50 people will develop skin cancer in their lifetime.</p>
+                    <p class="text-muted"><i class="fa-solid fa-arrow-right-long"></i>When detected early, the 5-year survival rate for melanoma is 99 percent.</p>
+                </div> 
+            </div>    
+        </div>
+    </section> 
+
+    <section id="Types" class="py-5">
+        <div class="container"> 
+            <h1 class="text-center my-2">Types of skin lesions?</h1>
+            <div id="carouselExampleAutoplaying" class="carousel slide bg-body-tertiary py-5" data-bs-ride="carousel">
+                 <div class="carousel-inner w-75 m-auto"> 
+                     <div class="carousel-item active "> 
+                         <div class="d-flex flex-column justify-content-center align-items-center ">
+                             <img class="w-25 py-3" src="{{ url_for('static', filename='Images/diseases/VASC.jpg')}}" alt="Vascular Lesion"> 
+                             <h2>Vascular Lesion</h2>
+                             <p class="w-75 text-center">Vascular lesions (VASC) are relatively common abnormalities of the skin and underlying tissues, more commonly known as birthmarks.</p>
+                         </div>
+                     </div>
+                     <div class="carousel-item"> 
+                         <div class="d-flex flex-column justify-content-center align-items-center ">
+                             <img class="w-25 py-3" src="{{ url_for('static', filename='Images/diseases/DF.jpg')}}" alt="Dermatofibroma "> 
+                             <h2>Dermatofibroma</h2>
+                             <p class="w-75 text-center">Dermatofibroma (DF) is a commonly occurring cutaneous entity usually centered within the skin's dermis. </p>
+                         </div> 
+                     </div>
+                     <div class="carousel-item"> 
+                         <div class="d-flex flex-column justify-content-center align-items-center ">
+                             <img class="w-25 py-3" src="{{ url_for('static', filename='Images/diseases/BKL.jpg')}}" alt="Benign Keratosis"> 
+                             <h2>Benign Keratosis</h2>
+                             <p class="w-75 text-center">Benign Keratosis (BKL) is a common noncancerous (benign) skin growth. People tend to get more of them as they get older. Benign Keratosis are usually brown, black or light tan. The growths (lesions) look waxy or scaly and slightly raised. </p>
+                         </div> 
+                     </div>
+                     <div class="carousel-item"> 
+                         <div class="d-flex flex-column justify-content-center align-items-center ">
+                             <img class="w-25 py-3" src="{{ url_for('static', filename='Images/diseases/NV.jpg')}}" alt="Melanocytic Nevus"> 
+                             <h2>Melanocytic Nevus</h2>
+                             <p class="w-75 text-center">Melanocytic Nevus (NV) is a skin lesion characterized by benign proliferations of nevomelanocytes and presents at birth or develops within the first few weeks.</p>
+                         </div> 
+                     </div>
+                     <div class="carousel-item"> 
+                         <div class="d-flex flex-column justify-content-center align-items-center ">
+                             <img class="w-25 py-3" src="{{ url_for('static', filename='Images/diseases/AK.jpg')}}" alt="Actinic Keratosis"> 
+                             <h2>Actinic Keratosis</h2>
+                             <p class="w-75 text-center">Actinic keratosis (AK) are scaly spots or patches on the top layer of skin. With time they may become hard with a wartlike surface. An actinic keratosis is a rough, scaly patch on the skin that develops from years of sun exposure.</p>
+                         </div> 
+                     </div>
+                     <div class="carousel-item"> 
+                         <div class="d-flex flex-column justify-content-center align-items-center ">
+                             <img class="w-25 py-3" src="{{ url_for('static', filename='Images/diseases/BCC.jpg')}}" alt="Basal Cell Carcinoma "> 
+                             <h2>Basal Cell Carcinoma </h2>
+                             <p class="w-75 text-center">Basal cell carcinoma (BCC) begins in the basal cells — a type of cell within the skin that produces new skin cells as old ones die off.
+                                 Basal cell carcinoma often appears as a slightly transparent bump on the skin, though it can take other forms. </p>
+                         </div> 
+                     </div>
+                     <div class="carousel-item"> 
+                         <div class="d-flex flex-column justify-content-center align-items-center ">
+                             <img class="w-25 py-3" src="{{ url_for('static', filename='Images/diseases/MEL.jpg')}}" alt="Melanoma"> 
+                             <h2>Melanoma </h2>
+                             <p class="w-75 text-center">
+                                 Melanoma is a type of skin cancer that can spread to other areas of the body. The main cause of melanoma is ultraviolet light, which comes from the sun and is used in sunbeds.</p>
+                         </div> 
+                     </div>
+                 </div>
+                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Previous</span>
+                 </button>
+                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Next</span>
+                 </button>
+             </div>
+        </div>
+    </section>
+
+    <section id="WasteTime">
+        <div class="container">
+            <div class="bgimage rounded-2"> 
+               <div class="bgImageInfo">
+                    <h2 class="mb-4">Don’t waste your time!</h2> 
+                    <p class="text-muted fa-1x">With Dermatologist you can find a suspicious moles faster than <br> visit a doctor. It is so simple!</p>
+                    <button type="button" class="btn btn-danger p-2 ps-5 pe-5 mt-3 "><a href="{{ url_for('views.upload') }}">Let's start</a></button>
+                </div> 
+            </div>  
+        </div>
+    </section>
+
+    <section id="worthUsing" class="p-" >  
+        <div class="container">
+            <h2 class="text-center mb-3">Why is Dermatologist system worth using?</h2> 
+            <div class="row">
+                <div class=" col-lg-3 col-md-6 col-sm-12"> 
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fa-regular fa-lightbulb fa-2x"></i>
+                        </div> 
+                        <span>Smart</span> 
+                        <p class="text-muted"> 
+                             Dermatologist is created on the basis of Machine and Deep Learning as a result of joint work of Bioinformaticians and doctors. Our app has a similar accuracy as a professional dermatologist
+                        </p>
+                    </div>
+                </div> 
+                <div class=" col-lg-3 col-md-6 col-sm-12"> 
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fa-regular fa-clock fa-2x"></i>
+                        </div> 
+                        <span>Simple</span> 
+                        <p class="text-muted"> 
+                            You bring the Laptop and Upload the dermoscopic image, and in 1 minute you will know if there is any reason for concern. 
+                        </p>
+                    </div>
+                </div>
+                <div class=" col-lg-3 col-md-6 col-sm-12"> 
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fa-solid fa-laptop-file fa-2x"></i>
+                        </div> 
+                        <span>Accessible</span> 
+                        <p class="text-muted"> 
+                            Dermatologist is available anytime, anywhere. Keep your health in check at your fingertips even when you are on the go.</p>
+                    </div>
+                </div>
+
+                <div class=" col-lg-3 col-md-6 col-sm-12"> 
+                    <div class="item">
+                        <div class="icon">
+                            <i class="fa-solid fa-money-bill-transfer fa-2x"></i>  
+                        </div> 
+                        <span>Affordable</span> 
+                        <p class="text-muted"> 
+                            Dermatologist’s leading image analytics features come at free price, fit for any request. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="DL"> 
+        <div class="container">
+            <div class="row"> 
+                <div class="col-md-5 text-center"> 
+                    <img src="{{ url_for('static', filename='Images/DL.png')}}" class="w-100" alt="Deep-Learning">
+                </div> 
+                <div class="col-md-7">
+                    <h2>How does Deep Learning analyze images?</h2> 
+                    <p class="text-muted">Dermatologist uses a deep learning models. The human ability to learn from examples and experiences has been transferred to a computer. For this purpose, the neural network has been trained using a dermoscopic imaging database containing tens of thousands of examples that have confirmed diagnosis and assessment by dermatologists.</p> 
+                    <p class="text-muted">The Model is able to distinguish between benign ,malignant and premalignat tumors.The Algorithm can analyze thousands of features, but not only 7 of them. Of course, only a machine can detect that amount of evidence.</p>   
+                    <p class="text-muted">Due to the productive cooperation with doctors, the quality of the algorithm performance is constantly being improved. Based on growing experience and its own autonomous rules, the model is able to distinguish between benign, malignant and premalignat tumors.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-5">
+        <div class="container"> 
+            <div class="row py-5 gy-2 ">
+                <div class="col-md-4 ">
+                    <p class="text-white">Dermatologust is not intended to perform diagnosis, but rather to provide users the ability to image, track, and better understand their moles.</p>
+                    <p class="text-white-50" >Skin Cancer Detection | All Rights Reserved. Copyright © 2023</p>
+                </div>  
+                <div class="col-md-4  text-white">
+                    <ul class="navbar-nav ms-5 ">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#homepage">Home</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Types">Types</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#worthUsing">Features</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#AI">ML&DL</a>
+                        </li> 
+                      </ul>
+                </div> 
+                <div class="col-md-4 ">
+                    <p class="text-white-50" >If you have any question about our system - contact with us via mail:</p>
+                    <p><a class="text-white-50"  href="mailto:hebafahmyff@gmail.com">hebafahmyff@gmail.com</a></p>
+                    <p><a class="text-white-50"  href="mailto:salahabdelaal49@gmail.com">muahmed.salah984@gmail.com</a></p>
+                    <p><a class="text-white-50"  href="mailto:ranamuhamed924@gmail.com">ranamuhamed924@gmail.com</a></p>
+                    <p><a class="text-white-50"  href="mailto:joyagamal215@gmail.com">joyagamal215@gmail.com</a></p>
+                    <p><a class="text-white-50"  href="mailto:mahaahmed5553@gmail.com">mahaahmed5553@gmail.com</a></p>
+                
+                </div>
+                
+            </div>
+        </div>
+    </footer> 
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+
+
+

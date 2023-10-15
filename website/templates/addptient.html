@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block head %}{% endblock %}
+
+{% block title %}Add Ptient | Skin Cancer{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row gy-4 m-auto p-3 mt-3 " id="InfoSection"> 
+        <div class="m-auto p-5 shadow col-lg-6" id="InnerInfoSection">
+            <div class="DrProfile">   
+              <h2 id="ProfileHeading" class="text-center">Add Patient</h2> 
+              <div> 
+                  <form  id="AddPatientForm" class="ps-4 pe-4 pb-1 pt-2" action="#" method="POST">
+                      <hr style="background-color: #073775; height: 5px;">
+                      <div class="mb-2">
+                        <label for="FullName" class="form-label">Patient Full Name</label>
+                        <input type="text" name="name" id="FullName" class="form-control" required> 
+                      </div>                  
+                       <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Patient Mobile Number</label>
+                        <input type="number"  class="form-control" name="phoneNumber" id="phoneNumber" required >
+                        </div>    
+                       <div class="mb-3">
+                        <label for="ClinicBranch" class="form-label">Clinic Branch</label>
+                        <input type="text"  class="form-control" name="clinicBranch" id="ClinicBranch" required >
+                        </div>    
+                       <div class="mb-3">
+                        <label for="inputImg" class="form-label">Disease Image</label>
+                        <input type="file" accept="image/*" class="form-control" id="inputImg" name="inputImg"/>
+                      </div>    
+                        <div class="d-grid gap-2 col-5 mx-auto w-50">
+                          <button type="submit" class="btn btn-primary rounded mt-2  " style="background-color: #073775 !important; ">Add</button>
+                        </div>                              
+                    </form>
+              </div>
+            </div> 
+          </div> 
+    </div>
+</div>  
+{% endblock %}
+
+{% block scripts %}{% endblock %}

@@ -1,0 +1,58 @@
+<!-- photo_upload.html -->
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{% endblock %}
+
+{% block title %}Test lesion{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='CSS/all.css')}}"/>
+{% endblock %}
+
+{% block content %}
+    <section id="photoUpload">
+        <div class="container">
+            <div class="row flex-column">
+            <div class="col-lg-6 m-auto" id="uploadImage">
+                <h2>Let's start!</h2>
+                <p class="text-muted mt-3">
+                Add a dermoscopic image ( in-vivo technique that has traditionally
+                been useful for the evaluation of suspicious skin lesions ) to
+                make scan. You can upload photo from the device.(available for
+                mobiles)
+                </p>
+                <input type="file" accept="image/*" class="form-control mt-3" id="inputImg" name='inputImg'/>
+                <div class="d-flex justify-content-center mt-4">
+                <button id="photoBtn" class="btn btn-danger pt-2 pb-2 ps-3 pe-3" type="button" > Upload Photo </button> 
+                </div>
+                <div class="alert alert-danger d-none mt-3" id="alertImage">No Photos uploaded!</div>
+            </div>
+        
+            <!-- Add the result section -->
+            <div id="result" class="vh-100 d-none bg-black bg-opacity-50 position-absolute w-100 top-0 start-0 end-0 d-flex  justify-content-center align-items-center">
+                <div class="container ">
+                <div class="row">
+                    <div class="col-md-6 m-auto">
+                    <div class="text-center bg-white py-5 rounded position-relative">
+                        <i class="fa-regular fa-circle-xmark d-block position-absolute end-0 top-0 m-3 fa-2x " id="Exit"></i>
+                        <img src="" class="w-75 mb-3" alt="" id="uploaded-image">
+                        <h3>Your Result <span class="text-danger" id="prediction-result"></span></h3>
+                        <div class="d-grid mx-auto w-75"> 
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='JS/Result.js') }}"></script>
+{% endblock %}
